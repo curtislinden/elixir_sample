@@ -4,8 +4,26 @@
 engineers in the concepts of Erlang, OTP, and Elixir.
 
 
-# Starting
+# Editing
 
+SublimeText (2/3)
+	https://github.com/elixir-lang/elixir-tmbundle
+	SublimeRepl (to play with console)
+
+Emacs
+	Major Mode
+		https://github.com/elixir-lang/emacs-elixir
+Vim 
+	PlainOldVim
+		https://github.com/elixir-lang/vim-elixir.git
+	Janus
+		[submodule "janus/vim/langs/elixir"]
+			path = janus/vim/langs/elixir
+			url = https://github.com/elixir-lang/vim-elixir.git
+
+
+
+# Starting
 
 
 To start your new Phoenix application:
