@@ -1,0 +1,11 @@
+%{"amrita": {:git, "git://github.com/josephwilk/amrita.git", "bc28aeb2c773a71808dd814a9390758da1af744c", []},
+  "cowlib": {:git, "git://github.com/extend/cowlib.git", "7d8a571b1e50602d701ca203fbf28036b2cf80f5", [ref: "master"]},
+  "gun": {:git, "https://github.com/extend/gun", "ea2de24f18741fc89d7a1dd6a3a0a43f3ccb1fd4", []},
+  "hackney": {:hex, :hackney, "0.14.3"},
+  "httpoison": {:hex, :httpoison, "0.5.0"},
+  "idna": {:hex, :idna, "1.0.1"},
+  "meck": {:git, "git://github.com/eproxus/meck.git", "dde759050eff19a1a80fd854d7375174b191665d", [tag: "0.8.2"]},
+  "mock": {:git, "https://github.com/jjh42/mock", "9952e1b7b8a1e0ec1af15cac6a736fcdb0dcc170", []},
+  "poison": {:hex, :poison, "1.2.0"},
+  "ranch": {:git, "git://github.com/extend/ranch.git", "741bfb73ca663394ecf7a73410506d66f01985a6", [ref: "master"]},
+  "recon": {:hex, :recon, "2.2.0"}}
