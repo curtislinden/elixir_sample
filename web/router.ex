@@ -1,3 +1,6 @@
+@docs """
+  Phonex Router is used to map request PATH to Controllers.
+"""
 defmodule ElixirExample.Router do
   use Phoenix.Router
 

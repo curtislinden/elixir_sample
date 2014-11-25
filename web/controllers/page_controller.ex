@@ -1,3 +1,6 @@
+@docs """
+  This is the default Phonex Controller
+"""
 defmodule ElixirExample.PageController do
   use Phoenix.Controller
 
