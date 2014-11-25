@@ -1,3 +1,10 @@
+@docs """
+
+This module implements the behaviour GenEvent and is itself specified as as
+monitored handler for the events that the GenEvent process receives.
+
+"""
+
 defmodule Example.EventHandler do
   require Logger
   use GenEvent
@@ -8,23 +15,30 @@ defmodule Example.EventHandler do
     {:ok, pid_event }
   end
 
-#
-# considered using the event handler to take notice of failed document push
-# but have went with exit process solution for now ( I expect this to lose the document dispatch request)
-#
+@docs """
+  Handle the event that there is a server connection error in the dispatch_output function
+  by retrying.
+
+  The retry will continue indefinatly, with a 5 second delay after 10 failures.
+
+"""
   def handle_event(event = {:error_input_output_dispatch, document, error_count}, state) do
     Logger.info(":error_input_output_dispatch called")
     if error_count < 10 do
       Example.OutputServer.dispatch_output(Example.OutputServer,document, error_count)
     else
+      # back pressure logic       
+      # output has failed to be sent  
       :timer.sleep(5000)
       Example.OutputServer.dispatch_output(Example.OutputServer,document, error_count)
-      # back pressure logic
-      # output has failed to be sent  
     end
     {:ok, state}
   end
-
+  
+  @docs """
+      Handle the {:processed_input, document} event by forwarding the document to the
+      OutputServer process's dispatch_output function.
+  """
   def handle_event(event = {:processed_input, document},state) do
     Example.OutputServer.dispatch_output(Example.OutputServer,document)
     {:ok , state }

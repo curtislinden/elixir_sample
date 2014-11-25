@@ -1,3 +1,14 @@
+@docs """
+  This module implements the GenServer behaviour and is used to process input and forwarding the result
+  via a event.
+
+  GenServer represents an OTP concept where the client implementation will be exectued on a node which is
+  not nessisarily the same node that is actually running the server process.
+
+  GenServer provides interface for syncronous calls or async calls.
+  
+
+"""
 defmodule Example.InputServer do
   use GenServer
 

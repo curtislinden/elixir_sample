@@ -4,6 +4,7 @@ defmodule Example.OutputServer do
   alias Poison, as: JSON
 
   use GenServer
+
   def start_link(event_manager, opts \\ []) do
     GenServer.start_link(__MODULE__, event_manager, opts)
   end
@@ -29,12 +30,22 @@ defmodule Example.OutputServer do
   
   @docs """
     Dispatch a remote service call via cast to the configured remote server
-    the document parameter will be converted to a JSON post body
+    the document parameter will be converted to a JSON post body.
+
   """
   def dispatch_output(server,document) do
     dispatch_output(server,document,0)
   end
 
+  @docs """
+    Dispatch a remote service call via cast to the configured remote server
+    the document parameter will be converted to a JSON post body.
+    
+
+    This version of the function is defined to take a current error_count as part
+    of it's state. This  method is used for the error event handler.
+    
+  """
   def dispatch_output(server,document, error_count) do
     GenServer.cast(server, {:dispatch_output, document, error_count})
   end

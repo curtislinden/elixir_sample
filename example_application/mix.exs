@@ -9,14 +9,19 @@ defmodule ExampleApplication.Mixfile do
   end
 
   # Configuration for the OTP application
+#
+  #
   #
   # Type `mix help compile.app` for more information
   def application do
     [applications: [:logger, :httpoison, :recon],
   
+    # defining enviormental variable to be used within the erlang VM
+    
      env: [output_external_host: 'localhost', # elixir gotcha -> "" is binary , '' is list
            output_external_port: 9292,
            ],
+     # Use EgApplication as the 'Application' module
      mod: {EgApplication, []}]
   end
 
