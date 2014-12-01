@@ -1,7 +1,7 @@
-@docs """
+defmodule ElixirExample.Router do
+@docmodule """
   Phonex Router is used to map request PATH to Controllers.
 """
-defmodule ElixirExample.Router do
   use Phoenix.Router
 
   scope "/" do
@@ -9,13 +9,12 @@ defmodule ElixirExample.Router do
     pipe_through :browser
 
     get "/default", ElixirExample.PageController, :index, as: :pages
-    get "/", ElixirExample.BasicController,       :index, as: :basic
+    get "/index", ElixirExample.BasicController,       :index, as: :basic
   end
 
   scope "/api" do
-    # Use the default browser stack.
     pipe_through :api
-    get "/basic", ElixirExample.BasicController,       :index, as: :basic
+    post "/basic", ElixirExample.BasicController, :index, as: :api_basic
   end
 
   # Other scopes may use custom stacks.

@@ -3,7 +3,7 @@ defmodule ElixirExample.BasicController do
   alias Poison, as: JSON
   
   plug :action
-  @docs """
+  @doc """
   	Type: GET
 
   	Response: 

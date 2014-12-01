@@ -1,6 +1,5 @@
 defmodule Example.OutputServer do
   require Logger
-  
   alias Poison, as: JSON
 
   use GenServer
@@ -57,6 +56,14 @@ defmodule Example.OutputServer do
     case HTTPoison.post(uri,payload) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         Logger.info body
+        # runtime is called at the begining of the initial HTTP request
+        # and then called again on a successful post
+        # effectively catching the total time to run a single request through
+        # the passthrough engine
+        #
+        {real_total_run_time, real_time_since_last_call} = :erlang.statistics(:wall_clock)
+        Example.BenchmarkServer.push_run(Example.BenchmarkServer,real_time_since_last_call)
+
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         Logger.error "Not found :("
       {:error, %HTTPoison.Error{reason: reason}} ->
@@ -67,7 +74,6 @@ defmodule Example.OutputServer do
         GenEvent.notify(state.event_manager,{:error_input_output_dispatch, document, error_count + 1})
 
     end
-
     {:noreply, state}
   end
 

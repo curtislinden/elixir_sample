@@ -19,7 +19,7 @@ defmodule Example.Supervisor do
   @output_server_name Example.OutputServer
   @input_server_name Example.InputServer
   @event_manager Example.EventHandler
-
+  @benchmark_server_name Example.BenchmarkServer
 
   @doc """
     This method follows the interface for the Supervisor behavior.
@@ -34,6 +34,7 @@ defmodule Example.Supervisor do
   """
   def init(:ok) do
     children_spec = [
+      worker(Example.BenchmarkServer, [[name: @benchmark_server_name]]),
       worker(Example.EventHandler, [[name: @event_manager]]),
       worker(Example.InputServer, [@event_manager,  [name: @input_server_name]]),
       worker(Example.OutputServer, [@event_manager, [name: @output_server_name]])

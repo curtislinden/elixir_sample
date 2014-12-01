@@ -2,7 +2,7 @@ defmodule ElixirExample do
   use Application
 
 
-  @docs """
+  @doc """
 
     Standard Application Entry Point.
 

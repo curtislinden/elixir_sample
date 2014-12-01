@@ -1,7 +1,7 @@
-@docs """
+defmodule ElixirExample.PageController do
+@docmodule """
   This is the default Phonex Controller
 """
-defmodule ElixirExample.PageController do
   use Phoenix.Controller
 
   plug :action

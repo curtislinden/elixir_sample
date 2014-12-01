@@ -7,7 +7,8 @@ defmodule ElixirExample.Mixfile do
      elixir: "~> 1.0",
      elixirc_paths: ["lib", "web"],
      compilers: [:phoenix] ++ Mix.compilers,
-     deps: deps]
+     deps: deps,
+     escript: [main_module: Eg.Benchmark]]
   end
 
   # Configuration for the OTP application
@@ -26,6 +27,9 @@ defmodule ElixirExample.Mixfile do
      {:cowboy, "~> 1.0", },
      {:cowlib, "~> 1.0.0", [override: true, optional: false, hex: :cowlib]},
      {:ranch, "~> 1.0.0",  [override: true, optional: false, hex: :ranch]},
-     {:example_application, path: "example_application"}]
+     {:example_application, path: "example_application"},
+     { :uuid, "~> 0.1.5" },
+     {:poison, "1.2.0"}
+     ]
   end
 end
