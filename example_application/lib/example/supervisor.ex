@@ -1,14 +1,15 @@
-@docs """
+
+defmodule Example.Supervisor do
+@moduledoc """
   This module defines the process tree for this application 'example_application'
 
   Specifically at this point there is an EventHandler process, an InputServer and an OuputServer process
   that are running as workers of this Supervisor Process.
-  
+
 """
-defmodule Example.Supervisor do
   use Supervisor
   
-  @docs """
+  @doc """
     Naming the process here to make it easy to access the process.
   """
   def start_link do
@@ -20,7 +21,7 @@ defmodule Example.Supervisor do
   @event_manager Example.EventHandler
 
 
-  @docs """
+  @doc """
     This method follows the interface for the Supervisor behavior.
 
     The child spec is part of the OTP definintion of a supervisor and

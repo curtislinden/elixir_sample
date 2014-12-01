@@ -1,4 +1,5 @@
-@docs """
+defmodule Example.InputServer do
+@moduledoc """
   This module implements the GenServer behaviour and is used to process input and forwarding the result
   via a event.
 
@@ -9,7 +10,6 @@
   
 
 """
-defmodule Example.InputServer do
   use GenServer
 
   @doc """ 

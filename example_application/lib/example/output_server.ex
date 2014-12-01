@@ -10,7 +10,7 @@ defmodule Example.OutputServer do
   end
 
 
-  @docs """
+  @doc """
 
    Initialize server with default state:
    {:ok, %{gun: pid}}
@@ -28,7 +28,7 @@ defmodule Example.OutputServer do
     {:ok , %{event_manager: event_manager, host: host, port: port}}
   end
   
-  @docs """
+  @doc """
     Dispatch a remote service call via cast to the configured remote server
     the document parameter will be converted to a JSON post body.
 
@@ -37,14 +37,14 @@ defmodule Example.OutputServer do
     dispatch_output(server,document,0)
   end
 
-  @docs """
+  @doc """
     Dispatch a remote service call via cast to the configured remote server
     the document parameter will be converted to a JSON post body.
     
 
     This version of the function is defined to take a current error_count as part
     of it's state. This  method is used for the error event handler.
-    
+
   """
   def dispatch_output(server,document, error_count) do
     GenServer.cast(server, {:dispatch_output, document, error_count})

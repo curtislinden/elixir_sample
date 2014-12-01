@@ -1,11 +1,10 @@
-@docs """
-
-This module implements the behaviour GenEvent and is itself specified as as
-monitored handler for the events that the GenEvent process receives.
+defmodule Example.EventHandler do
+@moduledoc """
+ This module implements the behaviour GenEvent and is itself specified as as
+monitored handler for the events that the GenEvent process receives.#
 
 """
 
-defmodule Example.EventHandler do
   require Logger
   use GenEvent
 
@@ -15,7 +14,7 @@ defmodule Example.EventHandler do
     {:ok, pid_event }
   end
 
-@docs """
+@doc """
   Handle the event that there is a server connection error in the dispatch_output function
   by retrying.
 
@@ -35,7 +34,7 @@ defmodule Example.EventHandler do
     {:ok, state}
   end
   
-  @docs """
+  @doc """
       Handle the {:processed_input, document} event by forwarding the document to the
       OutputServer process's dispatch_output function.
   """
@@ -43,7 +42,6 @@ defmodule Example.EventHandler do
     Example.OutputServer.dispatch_output(Example.OutputServer,document)
     {:ok , state }
   end
-
 
 end
 
