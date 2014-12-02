@@ -23,7 +23,7 @@ defmodule ElixirExample.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "0.5.0"},
+    [{:phoenix, "0.6.1"},
      {:cowboy, "~> 1.0", },
      {:cowlib, "~> 1.0.0", [override: true, optional: false, hex: :cowlib]},
      {:ranch, "~> 1.0.0",  [override: true, optional: false, hex: :ranch]},

@@ -17,7 +17,9 @@ defmodule ElixirExample.BasicController do
   def index(conn,_params) do
     Example.InputServer.process_input(Example.InputServer,_params)
     response = Dict.put(_params,:sent, true)
-
+    conn = Plug.Conn.put_status(conn, :accepted)
+    IO.puts "............"
+    IO.puts conn.status
     json conn, JSON.encode!(response)
   end
 end
