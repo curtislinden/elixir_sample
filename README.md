@@ -6,20 +6,22 @@ engineers in the concepts of Erlang, OTP, and Elixir.
 
 # Editing
 
-SublimeText (2/3)
-	https://github.com/elixir-lang/elixir-tmbundle
-	SublimeRepl (to play with console)
+* SublimeText (2/3)
+	* https://github.com/elixir-lang/elixir-tmbundle
+	* SublimeRepl (to play with console)
 
-Emacs
-	Major Mode
-		https://github.com/elixir-lang/emacs-elixir
-Vim 
-	PlainOldVim
-		https://github.com/elixir-lang/vim-elixir.git
-	Janus
+* Emacs
+	* Major Mode
+		*	https://github.com/elixir-lang/emacs-elixir
+* Vim 
+	* PlainOldVim
+		*	https://github.com/elixir-lang/vim-elixir.git
+	* Janus
+	```
 		[submodule "janus/vim/langs/elixir"]
 			path = janus/vim/langs/elixir
 			url = https://github.com/elixir-lang/vim-elixir.git
+	```
 
 
 
@@ -40,8 +42,9 @@ Now you can visit `localhost:4000` from your browser.
 Visiting  "/" will pass whatever get params to the InputServer
 
 IE: 
+```
 http://localhost:4000/?doc[id]=1&doc[name]=purchase_order
-
+```
 
 'ExampleApplication' is a dependency of ElixirExapmle it is
 an instance of an Erlang VM application written in Elixir.
@@ -60,13 +63,14 @@ The mock external dependency is started from ./example_application via
 'rackup'.
 
 eg:
-
+```
 cd ./example_application
 rackup
+```
 With a http request :
-
+```
 GET http://u2u.local:4000/?invoice[id]=123&invoice[item]=414
-
+```
 The phoenix application 'ElixirSample' will call the
 'ExampleApplication' InputServer with any passed get parameters
 as a map (dictionary). (ASYNC)
