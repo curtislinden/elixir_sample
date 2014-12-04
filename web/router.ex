@@ -5,15 +5,12 @@ defmodule ElixirExample.Router do
   use Phoenix.Router
 
   scope "/" do
-    # Use the default browser stack.
-    pipe_through :browser
 
     get "/default", ElixirExample.PageController, :index, as: :pages
     get "/index", ElixirExample.BasicController,       :index, as: :basic
   end
 
   scope "/api" do
-    pipe_through :api
     post "/basic", ElixirExample.BasicController, :index, as: :api_basic
   end
 

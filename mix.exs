@@ -29,7 +29,8 @@ defmodule ElixirExample.Mixfile do
      {:ranch, "~> 1.0.0",  [override: true, optional: false, hex: :ranch]},
      {:example_application, path: "example_application"},
      { :uuid, "~> 0.1.5" },
-     {:poison, "1.2.0"}
+     {:poison, "1.2.0"},
+     {:exrm, "0.14.13"}
      ]
   end
 end

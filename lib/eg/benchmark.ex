@@ -44,7 +44,7 @@ defmodule Eg.Benchmark do
 
   defp make_request(payload) do
     case HTTPoison.post(uri,payload) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+      {:ok, %HTTPoison.Response{status_code: status, body: body}} when (status < 300 and status >= 200)  ->
         Logger.info body
         {:ok}
       {:ok, %HTTPoison.Response{status_code: 404}} ->

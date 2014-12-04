@@ -54,7 +54,7 @@ defmodule Example.OutputServer do
     payload = JSON.encode!(document)
 
     case HTTPoison.post(uri,payload) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+      {:ok, %HTTPoison.Response{status_code: status, body: body}} when (status < 300 and status >= 200)  ->
         Logger.info body
         # runtime is called at the begining of the initial HTTP request
         # and then called again on a successful post

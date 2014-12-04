@@ -1,5 +1,7 @@
-%{"cowboy": {:hex, :cowboy, "1.0.0"},
+%{"conform": {:hex, :conform, "0.10.5"},
+  "cowboy": {:hex, :cowboy, "1.0.0"},
   "cowlib": {:hex, :cowlib, "1.0.0"},
+  "exrm": {:hex, :exrm, "0.14.13"},
   "gun": {:git, "https://github.com/extend/gun", "ea2de24f18741fc89d7a1dd6a3a0a43f3ccb1fd4", []},
   "hackney": {:hex, :hackney, "0.14.3"},
   "httpoison": {:hex, :httpoison, "0.5.0"},
